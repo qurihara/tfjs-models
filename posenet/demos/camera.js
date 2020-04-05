@@ -445,7 +445,7 @@ function detectPoseInRealTime(video, net) {
     if (poses.length > 0 && poses[0].keypoints != undefined){
       if (poses[0].keypoints[9].score > th) handsup = true;
       if (poses[0].keypoints[10].score > th) handsup = true;
-      console.log(handsup);
+      // console.log(handsup);
       if (handsup === true){
         onfire();
       }
@@ -509,7 +509,7 @@ var wfurl = "";
 var sound = new Audio("https://qurihara.github.io/crosstalk-breaker/sound/se_maoudamashii_onepoint13.mp3");
 function onfire(){
     if (alerting == true) {
-      console.log("stil alerting");
+      // console.log("stil alerting");
       return;
     }
     alerting = true;

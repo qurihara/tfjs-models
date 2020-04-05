@@ -41309,8 +41309,7 @@ function detectPoseInRealTime(video, net) {
 
     if (poses.length > 0 && poses[0].keypoints != undefined) {
       if (poses[0].keypoints[9].score > th) handsup = true;
-      if (poses[0].keypoints[10].score > th) handsup = true;
-      console.log(handsup);
+      if (poses[0].keypoints[10].score > th) handsup = true; // console.log(handsup);
 
       if (handsup === true) {
         onfire();
@@ -41372,7 +41371,7 @@ var sound = new Audio("https://qurihara.github.io/crosstalk-breaker/sound/se_mao
 
 function onfire() {
   if (alerting == true) {
-    console.log("stil alerting");
+    // console.log("stil alerting");
     return;
   }
 
@@ -41425,4 +41424,4 @@ $("#webhookbutton").click(function () {
   $('#webhookbutton').prop('disabled', true);
 });
 },{"@tensorflow-models/posenet":"node_modules/@tensorflow-models/posenet/dist/posenet.esm.js","dat.gui":"node_modules/dat.gui/build/dat.gui.module.js","stats.js":"node_modules/stats.js/build/stats.min.js","./demo_util":"demo_util.js"}]},{},["camera.js"], null)
-//# sourceMappingURL=./camera.283d5d54.js.map
+//# sourceMappingURL=/camera.283d5d54.js.map
