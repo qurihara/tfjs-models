@@ -507,7 +507,8 @@ bindPage();
 var alerting = false;
 var wfurl = "";
 // sound effect from https://maoudamashii.jokersounds.com/list/se2.html
-var sound = new Audio("https://qurihara.github.io/crosstalk-breaker/sound/se_maoudamashii_onepoint13.mp3");
+// var sound = new Audio("https://qurihara.github.io/crosstalk-breaker/sound/se_maoudamashii_onepoint13.mp3");
+var sound = new Audio("https://qurihara.github.io/crosstalk-breaker/sound/se_maoudamashii_onepoint28.mp3");
 function onfire(){
     if (alerting == true) {
       // console.log("stil alerting");
