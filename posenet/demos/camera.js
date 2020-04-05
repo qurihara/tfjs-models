@@ -443,8 +443,9 @@ function detectPoseInRealTime(video, net) {
     var th = 0.9
     let handsup = false;
     if (poses.length > 0 && poses[0].keypoints != undefined){
-      if (poses[0].keypoints[9].score > th) handsup = true;
-      if (poses[0].keypoints[10].score > th) handsup = true;
+      if (poses[0].keypoints[0].score > th &&
+        (poses[0].keypoints[9].score > th ||
+        poses[0].keypoints[10].score > th)) handsup = true;
       // console.log(handsup);
       if (handsup === true){
         onfire();

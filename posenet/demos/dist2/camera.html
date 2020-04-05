@@ -2,7 +2,17 @@
 <html>
 
 <head>
-    <title>PoseNet - Camera Feed Demo</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-162478311-1"></script>
+  <script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'UA-162478311-1');</script>
+    <title>Hands-to-face Detector</title>
     <style>.footer {
             position: fixed;
             left: 0;
@@ -130,9 +140,12 @@
           </div>
           <div class="d-flex justify-content-center">
             <p>
-              Alerts when your hands appear, to avoid them getting close to your face.<br>
-              By <a href="https://www.unryu.org">Kazutaka Kurihara</a>, with modifying <a href="https://github.com/qurihara/tfjs-models/tree/master/posenet">this</a> a little bit.
+              - Hands-to-face detector by <a href="https://www.unryu.org">Kazutaka Kurihara</a><br>
+              - Alerts when your face and hands are detected, to avoid hands-to-face situations.<br>
+              - Implemented by slightly modifying <a href="https://github.com/qurihara/tfjs-models/tree/master/posenet">this</a>.<br>
             </p>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="" data-hashtags="COVID19" data-show-count="false" data-lang="en">Tweet</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
         </div>
       </div>
