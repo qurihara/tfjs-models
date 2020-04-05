@@ -437,6 +437,19 @@ function detectPoseInRealTime(video, net) {
       }
     });
 
+    //q
+    // console.log(poses[0].keypoints[9]); // leftwrist
+    // console.log(poses[0].keypoints[10]); // rightwrist
+    var th = 0.9
+    let handsup = false;
+    if (poses[0].keypoints[9].score > th) handsup = true;
+    if (poses[0].keypoints[10].score > th) handsup = true;
+    console.log(handsup);
+    if (handsup === true){
+      onfire();
+    }
+    //q
+
     // End monitoring code for frames per second
     stats.end();
 
@@ -452,6 +465,11 @@ function detectPoseInRealTime(video, net) {
  */
 export async function bindPage() {
   toggleLoadingUI(true);
+  guiState.input.architecture = 'ResNet50';
+  guiState.input.outputStride = 32;
+  guiState.input.inputResolution = 200;
+  guiState.input.multiplier = 1;
+  guiState.input.quantBytes = 2;
   const net = await posenet.load({
     architecture: guiState.input.architecture,
     outputStride: guiState.input.outputStride,
@@ -482,3 +500,57 @@ navigator.getUserMedia = navigator.getUserMedia ||
     navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 // kick off the demo
 bindPage();
+
+var alerting = false;
+var wfurl = "";
+// sound effect from https://maoudamashii.jokersounds.com/list/se2.html
+var sound = new Audio("https://qurihara.github.io/crosstalk-breaker/sound/se_maoudamashii_onepoint13.mp3");
+function onfire(){
+    if (alerting == true) {
+      console.log("stil alerting");
+      return;
+    }
+    alerting = true;
+    $("#all").css('background-color','red');
+    if (wfurl != ''){
+      $.get(wfurl);
+//       console.log("webhook");
+    }
+
+    let mute = $("#mute").prop("checked");
+    if (mute == false){
+      if (sound){
+        sound.play();
+      }
+    }
+
+    setTimeout(function(){
+      $("#all").css('background-color','white');
+      alerting = false;
+    },1000);
+//   }
+}
+$("#start-buttonTest").click(function(){
+  onfire();
+});
+window.onload = function() {
+  var cookie = $.cookie('webhookurl');
+  if(cookie){
+    console.log(cookie);
+    $('#webhookurl').val(cookie);
+  }else{
+//     console.log("no cookie");
+  }
+
+}
+$("#webhookbutton").click(function(){
+  wfurl = $('#webhookurl').val()
+  console.log(wfurl);
+  if (wfurl != ''){
+    $.cookie('webhookurl',wfurl);
+  }else{
+    console.log("no url");
+  }
+  $('#webhookurl').prop('disabled', true);
+  $('#webhookbutton').prop('disabled', true);
+});
