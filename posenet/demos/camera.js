@@ -442,11 +442,13 @@ function detectPoseInRealTime(video, net) {
     // console.log(poses[0].keypoints[10]); // rightwrist
     var th = 0.9
     let handsup = false;
-    if (poses[0].keypoints[9].score > th) handsup = true;
-    if (poses[0].keypoints[10].score > th) handsup = true;
-    console.log(handsup);
-    if (handsup === true){
-      onfire();
+    if (poses.length > 0 && poses[0].keypoints != undefined){
+      if (poses[0].keypoints[9].score > th) handsup = true;
+      if (poses[0].keypoints[10].score > th) handsup = true;
+      console.log(handsup);
+      if (handsup === true){
+        onfire();
+      }
     }
     //q
 
