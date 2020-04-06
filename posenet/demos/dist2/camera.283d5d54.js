@@ -41106,8 +41106,9 @@ function setupGui(cameras, net) {
   multi.add(guiState.multiPoseDetection, 'minPartConfidence', 0.0, 1.0); // nms Radius: controls the minimum distance between poses that are returned
   // defaults to 20, which is probably fine for most use cases
 
-  multi.add(guiState.multiPoseDetection, 'nmsRadius').min(0.0).max(40.0);
-  multi.open();
+  multi.add(guiState.multiPoseDetection, 'nmsRadius').min(0.0).max(40.0); // multi.open();
+
+  single.open();
   let output = gui.addFolder('Output');
   output.add(guiState.output, 'showVideo');
   output.add(guiState.output, 'showSkeleton');
