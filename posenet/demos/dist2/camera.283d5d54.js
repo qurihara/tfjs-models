@@ -41425,4 +41425,4 @@ $("#webhookbutton").click(function () {
   $('#webhookbutton').prop('disabled', true);
 });
 },{"@tensorflow-models/posenet":"node_modules/@tensorflow-models/posenet/dist/posenet.esm.js","dat.gui":"node_modules/dat.gui/build/dat.gui.module.js","stats.js":"node_modules/stats.js/build/stats.min.js","./demo_util":"demo_util.js"}]},{},["camera.js"], null)
-//# sourceMappingURL=./camera.283d5d54.js.map
+//# sourceMappingURL=/camera.283d5d54.js.map
